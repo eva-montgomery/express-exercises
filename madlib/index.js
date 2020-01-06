@@ -19,3 +19,13 @@ app.get('*', (req, res) => {
 server.listen(PORT, () => {
     console.log(`Listening ${PORT}`);
 });
+
+// Part 2
+// In your index.js, create an array of names that deserve an extra polite greeting.
+
+// If the value of req.url is /oakley and the array is ["Oakley", "Chris"], the page should show How wonderfully splendid it is to be in your presence again, Oakley!. You look magnificent today!
+
+// If the value of req.url is /milla (and the array is still ["Oakley", "Chris"]), the page should show Hello, Milla!.
+
+
+const greetings = ["Eva", "Peter", "Mya"];
