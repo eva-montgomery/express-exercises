@@ -14,7 +14,10 @@ function getSongsForAlbum(albumID) {
         console.log(item.id);
         if (item.id == albumID) {
             return item.songs;
-        }
+        } else {
+            return "Data not found."
+        };
+     
     }
     console.log(albumID);
 
