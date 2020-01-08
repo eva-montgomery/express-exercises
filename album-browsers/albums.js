@@ -1,30 +1,44 @@
-const albumsData = require('./albumsData.json')
+const data = require('./albumsData.json');
 
 function getAlbums() {
-    const albumTitles = [];
-    for (let album of albumsData.albums) {
-      albumTitles.push(album.title);
-    }
-    return albumTitles;
-};
-//getAlbums();
+    return data.albums;
+}
 
-function getSongsForAlbum(albumID) {
-    for (let item of albumsData.albums) {
-        console.log(item.id);
-        if (item.id == albumID) {
-            return item.songs;
-        } else {
-            return "Data not found."
-        };
-     
+function getById(id) {
+    // for-loop
+    for (let album of data.albums) {
+        if (album.id == id) {
+            return album;
+        }
     }
-    console.log(albumID);
+}
 
-};
-//getSongsForAlbum(1001);
+function getSongsForAlbum(albumId) {
+    // return data.albums.find(album => album.id == albumId).songs;
+    const theAlbum = data.albums.find((anAlbum) => {
+        // Is the album I'm currently visiting
+        // the one we want?
+        // if (anAlbum.id == albumId) {
+        //     // (I need to return true or false.)
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        return anAlbum.id == albumId;
+    });
+    console.log('****************');
+    console.log(theAlbum);
+    console.log('****************');
+    if (theAlbum) {
+        return theAlbum.songs;
+    } else {
+        throw "Album not found";
+    }
+    
+}
 
 module.exports = {
     getAlbums,
-    getSongsForAlbum
-}
+    getSongsForAlbum,
+    getById
+};

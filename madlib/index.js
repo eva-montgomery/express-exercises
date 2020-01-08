@@ -19,7 +19,7 @@ app.get('*', (req, res) => {
 server.listen(PORT, () => {
     console.log(`Listening ${PORT}`);
 });
-
+// ------------------------------------------------
 // Part 2
 // In your index.js, create an array of names that deserve an extra polite greeting.
 
@@ -29,3 +29,24 @@ server.listen(PORT, () => {
 
 
 const greetings = ["Eva", "Peter", "Mya"];
+let reqUrl = req.url.slice(1);
+let content = `Hello, ${reqUrl}`;
+
+
+const http = require('http');
+const PORT = 3000;
+
+const express = require('express');
+const app = express();
+
+const server = http.createServer(app);
+
+app.get(reqUrl, (req, res) => {
+    res.send(`Hello, ${req.url.slice(1)}!`);
+});
+
+app.get()
+
+server.listen(PORT, () => {
+    console.log(`Listening ${PORT}`);
+});
